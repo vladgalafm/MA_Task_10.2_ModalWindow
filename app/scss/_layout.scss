@@ -1,0 +1,112 @@
+body {
+  background-color: $background;
+}
+
+.checkbox {
+  position: absolute;
+  left: -9999px;
+
+  &:checked {
+    & ~ .show-window {
+      visibility: hidden;
+    }
+
+    & ~ .content {
+      animation-name: appearance;
+      animation-duration: 1s;
+      visibility: visible;
+    }
+  }
+
+  &:not(:checked) {
+    & ~ .show-window {
+      visibility: visible;
+    }
+
+    & ~ .content {
+      visibility: hidden;
+
+      & .content__close-window {
+        transition-duration: 0s;
+      }
+    }
+  }
+}
+
+.show-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.75rem 1.25rem;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $font-size;
+  font-weight: 300;
+  color: $text-color;
+  text-align: center;
+  background-color: $block-background;
+  visibility: visible;
+
+  &:hover {
+    background-color: $block-hover;
+    cursor: pointer;
+  }
+}
+
+.content {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, 0);
+  min-width: 300px;
+  max-width: 600px;
+  padding: 2.5rem;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: 300;
+  color: $text-color;
+  background-color: $block-background;
+  visibility: hidden;
+
+  &__close-window {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0 0.25rem 0.35rem;
+    font-size: 1.25rem;
+    line-height: 0.9rem;
+    border: 1px solid $text-color;
+    transition-duration: 0.1s;
+
+    &:hover {
+      color: $block-background;
+      background-color: $text-color;
+      cursor: pointer;
+    }
+  }
+
+  &__text {
+    line-height: $font-size * 1.2;
+
+    &--bold {
+      margin-top: $font-size;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes appearance {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    top: 3rem;
+    left: 50%;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
