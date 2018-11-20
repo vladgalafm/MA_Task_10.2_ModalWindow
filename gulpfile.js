@@ -11,17 +11,17 @@ gulp.task('sass', function(){
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(rename('style.css'))
     .pipe(autoprefixer({
-      browsers: [
-        "Android 2.3",
-        "Android >= 4",
-        "Chrome >= 20",
-        "Firefox >= 24",
-        "Explorer >= 8",
-        "iOS >= 6",
-        "Opera >= 12",
-        "Safari >= 6"],
-      cascade: false
-    }))
+    browsers: [
+      "Android 2.3",
+      "Android >= 4",
+      "Chrome >= 20",
+      "Firefox >= 24",
+      "Explorer >= 8",
+      "iOS >= 6",
+      "Opera >= 12",
+      "Safari >= 6"],
+    cascade: false
+  }))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({stream: true}));
 });

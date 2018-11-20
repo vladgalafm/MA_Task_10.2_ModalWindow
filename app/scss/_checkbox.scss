@@ -1,0 +1,28 @@
+.checkbox {
+  position: absolute;
+  left: -9999px;
+
+  & ~ .show-window {
+    visibility: visible;
+  }
+
+  & ~ .content {
+    visibility: hidden;
+
+    .content__close-window {
+      transition-duration: 0s;
+    }
+  }
+
+  &:checked {
+    & ~ .show-window {
+      visibility: hidden;
+    }
+
+    & ~ .content {
+      animation-name: appearance;
+      animation-duration: 1s;
+      visibility: visible;
+    }
+  }
+}

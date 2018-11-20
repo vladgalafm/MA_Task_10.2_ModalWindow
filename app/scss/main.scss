@@ -6,4 +6,11 @@
 }
 
 @import "variables";
-@import "layout";
+
+body {
+  background-color: $background;
+}
+
+@import "checkbox";
+@import "show-window";
+@import "content";
